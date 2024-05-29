@@ -1,0 +1,39 @@
+<div class="mat-elevation-z8">
+  @if (dataSource) {
+  <table mat-table [dataSource]="dataSource">
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Наименование</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="region">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Регион</th>
+      <td mat-cell *matCellDef="let element">{{ element.region }}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="inn">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ИНН</th>
+      <td mat-cell *matCellDef="let element">{{ element.inn }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="kpp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>КПП</th>
+      <td mat-cell *matCellDef="let element">{{ element.kpp }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  }
+
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>
