@@ -1,0 +1,141 @@
+<h2 mat-dialog-title>Добавить компанию</h2>
+<mat-dialog-content
+  ><form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Наименование</mat-label>
+      <input matInput formControlName="name" required />
+      @if (form.controls['name'].hasError('required')) {<mat-error>
+        Пожалуйста, введите ваше имя </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ИНН</mat-label>
+      <input matInput formControlName="inn" required />
+      @if (form.controls['inn'].hasError('required')) {
+      <mat-error>Пожалуйста, введите ваш ИНН</mat-error>
+      }
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Полное наименование</mat-label>
+      <input matInput formControlName="fullName" required />
+      @if (form.controls['fullName'].hasError('required')) {<mat-error>
+        Пожалуйста, введите полное наименование </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Вид организации</mat-label>
+      <input matInput formControlName="type" required />
+      @if (form.controls['type'].hasError('required')) {<mat-error>
+        Пожалуйста, укажите вид вашей организации </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Регион</mat-label>
+      <input matInput formControlName="region" required />
+      @if (form.controls['region'].hasError('required')) {<mat-error>
+        Пожалуйста, укажите вид вашей организации </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ОГРН</mat-label>
+      <input matInput formControlName="ogrn" required />
+      @if (form.controls['ogrn'].hasError('required')) {<mat-error>
+        Пожалуйста, укажите ваш ОГРН </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Юридический адресс</mat-label>
+      <input matInput formControlName="legalAdress" required />
+      @if (form.controls['legalAdress'].hasError('required')) {<mat-error>
+        Пожалуйста, укажите ваш юридический адресс </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Руководитель</mat-label>
+      <input matInput formControlName="leader" required />
+      @if (form.controls['leader'].hasError('required')) {<mat-error
+        *ngIf="form.controls['leader'].hasError('required')"
+      >
+        Пожалуйста, укажите вашего руководителя </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Номер телефона</mat-label>
+      <input matInput formControlName="phoneNumber" required />
+      @if (form.controls['phoneNumber'].hasError('required')) {<mat-error>
+        Пожалуйста, укажите вашего руководителя </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Электронный адрес</mat-label>
+      <input matInput formControlName="email" required />
+      @if (form.controls['email'].hasError('required')) {<mat-error>
+        Пожалуйста, укажите вашего руководителя </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Дополнительная информация </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="wrapper">
+        <mat-form-field>
+          <mat-label>ОКАТО</mat-label>
+          <input matInput formControlName="okato" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>ОКТМО</mat-label>
+            <input matInput formControlName="oktmo" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>ОКПО</mat-label>
+            <input matInput formControlName="okpo" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>ОКОГУ</mat-label>
+            <input matInput formControlName="okogy" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>ОКФС</mat-label>
+            <input matInput formControlName="okfs" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>ОКВЭД</mat-label>
+            <input matInput formControlName="okved" />
+          </mat-form-field>
+          <mat-form-field>            
+            <mat-label>Фактический адрес</mat-label>
+            <input matInput formControlName="actualAddress" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Почтовый адрес</mat-label>
+            <input matInput formControlName="postAdress" />
+          </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      Создать
+    </button>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button mat-dialog-close color="warn">Закрыть</button>
+</mat-dialog-actions>

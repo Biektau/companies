@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { TableComponent } from './components/table/table.component';
-
 import { MatSortModule } from '@angular/material/sort';
-import { ShareService } from './services/share.service';
+
+
 
 
 @Component({
@@ -15,5 +15,5 @@ import { ShareService } from './services/share.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(private shareService: ShareService) { }
+ 
 }

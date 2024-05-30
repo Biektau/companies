@@ -1,23 +1,21 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
-import { ShareService } from '../../services/share.service';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButtonModule, MatDividerModule, MatIconModule, FormsModule],
+  imports: [MatButtonModule, MatDividerModule, MatIconModule, MatDialogModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  searchValue: string = '';
-  
-  constructor(private shareService: ShareService) { }
+  constructor(public dialog: MatDialog) { }
 
-  onNameChange() {
-    this.shareService.changeName(this.searchValue);
+  openDialog(): void {
+    this.dialog.open(ModalComponent);
   }
 }

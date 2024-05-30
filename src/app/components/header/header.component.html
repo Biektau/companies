@@ -1,7 +1,3 @@
-<div class="header">  
-  <button mat-flat-button color="warn">Add</button>
-  <div class="input-block">
-    <mat-icon>search</mat-icon>
-    <input placeholder="Поиск" type="text" [(ngModel)]="searchValue" (ngModelChange)="onNameChange()">
-  </div>
+<div class="header">
+  <button mat-flat-button color="primary" (click)="openDialog()">Добавить компанию</button>
 </div>
