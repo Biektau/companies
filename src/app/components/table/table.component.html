@@ -1,6 +1,5 @@
 <div class="mat-elevation-z8">
-  @if (dataSource) {
-  <table mat-table [dataSource]="dataSource">
+  @if (dataSource) {<table mat-table [dataSource]="dataSource" matSort>
     <!-- Position Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Наименование</th>
@@ -27,8 +26,8 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-  }
+  </table>}
+  
 
   <mat-paginator
     [pageSizeOptions]="[5, 10, 20]"
@@ -36,7 +35,4 @@
     aria-label="Select page of periodic elements"
   >
   </mat-paginator>
-  
 </div>
-
-

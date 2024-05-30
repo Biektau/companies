@@ -11,76 +11,56 @@
 
     <mat-form-field>
       <mat-label>ИНН</mat-label>
-      <input matInput formControlName="inn" required />
-      @if (form.controls['inn'].hasError('required')) {
-      <mat-error>Пожалуйста, введите ваш ИНН</mat-error>
-      }
+      <input matInput formControlName="inn" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Полное наименование</mat-label>
-      <input matInput formControlName="fullName" required />
-      @if (form.controls['fullName'].hasError('required')) {<mat-error>
-        Пожалуйста, введите полное наименование </mat-error
-      >}
+      <input matInput formControlName="fullName" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Вид организации</mat-label>
-      <input matInput formControlName="type" required />
-      @if (form.controls['type'].hasError('required')) {<mat-error>
-        Пожалуйста, укажите вид вашей организации </mat-error
-      >}
+      <input matInput formControlName="type" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Регион</mat-label>
-      <input matInput formControlName="region" required />
-      @if (form.controls['region'].hasError('required')) {<mat-error>
-        Пожалуйста, укажите вид вашей организации </mat-error
-      >}
+      <input matInput formControlName="region" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>ОГРН</mat-label>
-      <input matInput formControlName="ogrn" required />
-      @if (form.controls['ogrn'].hasError('required')) {<mat-error>
-        Пожалуйста, укажите ваш ОГРН </mat-error
-      >}
+      <input matInput formControlName="ogrn" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Юридический адресс</mat-label>
-      <input matInput formControlName="legalAdress" required />
-      @if (form.controls['legalAdress'].hasError('required')) {<mat-error>
-        Пожалуйста, укажите ваш юридический адресс </mat-error
-      >}
+      <input matInput formControlName="legalAdress" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Руководитель</mat-label>
-      <input matInput formControlName="leader" required />
-      @if (form.controls['leader'].hasError('required')) {<mat-error
-        *ngIf="form.controls['leader'].hasError('required')"
-      >
-        Пожалуйста, укажите вашего руководителя </mat-error
-      >}
+      <input matInput formControlName="leader" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Номер телефона</mat-label>
-      <input matInput formControlName="phoneNumber" required />
-      @if (form.controls['phoneNumber'].hasError('required')) {<mat-error>
-        Пожалуйста, укажите вашего руководителя </mat-error
-      >}
+      <input matInput formControlName="phoneNumber" />
+      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Электронный адрес</mat-label>
-      <input matInput formControlName="email" required />
-      @if (form.controls['email'].hasError('required')) {<mat-error>
-        Пожалуйста, укажите вашего руководителя </mat-error
-      >}
+      <input matInput formControlName="email" />
+      
     </mat-form-field>
 
     <mat-expansion-panel
@@ -127,7 +107,7 @@
     </mat-expansion-panel>
 
     <button
-      mat-raised-button
+      mat-flat-button
       color="primary"
       type="submit"
       [disabled]="!form.valid"

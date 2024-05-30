@@ -8,14 +8,15 @@ import {
 import { CompanyService } from '../../services/company.service';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, MatSortModule } from '@angular/material/sort';
 import { Company } from '../../types/company-detail';
+import { ShareService } from '../../services/share.service';
 
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule],
+  imports: [MatTableModule, MatPaginatorModule, MatSortModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.scss',
 })
@@ -23,8 +24,19 @@ export class TableComponent implements OnInit, AfterViewInit {
   private companyService = inject(CompanyService);
   dataSource: MatTableDataSource<Company> | null = null;
 
+  constructor(private shareService: ShareService) { }
+
   ngOnInit(): void {
     this.loadCompanies();
+    this.shareService.currentSearchValue.subscribe(searchValue => {
+      this.applyFilter(searchValue);
+    })
+  }
+
+  applyFilter(searchValue: string) {
+    if (this.dataSource) {
+      this.dataSource.filter = searchValue.trim().toLowerCase();
+    }
   }
 
   loadCompanies() {
