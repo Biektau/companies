@@ -18,4 +18,7 @@ export class CompanyService {
     return this.http.get<Company[]>(BASE_URL);
   }
   
+  postCompany(company: Company): Observable<any> {
+    return this.http.post(BASE_URL, company);
+  }
 }

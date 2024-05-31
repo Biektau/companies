@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>Добавить компанию</h2>
 <mat-dialog-content
-  ><form [formGroup]="form" (ngSubmit)="onSubmit()">
+  ><form [formGroup]="form">
     <mat-form-field>
       <mat-label>Наименование</mat-label>
       <input matInput formControlName="name" required />
@@ -12,55 +12,46 @@
     <mat-form-field>
       <mat-label>ИНН</mat-label>
       <input matInput formControlName="inn" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Полное наименование</mat-label>
       <input matInput formControlName="fullName" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Вид организации</mat-label>
       <input matInput formControlName="type" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Регион</mat-label>
       <input matInput formControlName="region" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>ОГРН</mat-label>
       <input matInput formControlName="ogrn" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Юридический адресс</mat-label>
       <input matInput formControlName="legalAdress" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Руководитель</mat-label>
       <input matInput formControlName="leader" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Номер телефона</mat-label>
       <input matInput formControlName="phoneNumber" />
-      
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Электронный адрес</mat-label>
       <input matInput formControlName="email" />
-      
     </mat-form-field>
 
     <mat-expansion-panel
@@ -76,46 +67,45 @@
           <input matInput formControlName="okato" />
         </mat-form-field>
         <mat-form-field>
-            <mat-label>ОКТМО</mat-label>
-            <input matInput formControlName="oktmo" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>ОКПО</mat-label>
-            <input matInput formControlName="okpo" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>ОКОГУ</mat-label>
-            <input matInput formControlName="okogy" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>ОКФС</mat-label>
-            <input matInput formControlName="okfs" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>ОКВЭД</mat-label>
-            <input matInput formControlName="okved" />
-          </mat-form-field>
-          <mat-form-field>            
-            <mat-label>Фактический адрес</mat-label>
-            <input matInput formControlName="actualAddress" />
-          </mat-form-field>
-          <mat-form-field>
-            <mat-label>Почтовый адрес</mat-label>
-            <input matInput formControlName="postAdress" />
-          </mat-form-field>
+          <mat-label>ОКТМО</mat-label>
+          <input matInput formControlName="oktmo" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКПО</mat-label>
+          <input matInput formControlName="okpo" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКОГУ</mat-label>
+          <input matInput formControlName="okogy" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКФС</mat-label>
+          <input matInput formControlName="okfs" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКВЭД</mat-label>
+          <input matInput formControlName="okved" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Фактический адрес</mat-label>
+          <input matInput formControlName="actualAddress" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Почтовый адрес</mat-label>
+          <input matInput formControlName="postAdress" />
+        </mat-form-field>
       </div>
     </mat-expansion-panel>
-
-    <button
-      mat-flat-button
-      color="primary"
-      type="submit"
-      [disabled]="!form.valid"
-    >
-      Создать
-    </button>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-flat-button mat-dialog-close color="warn">Закрыть</button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onSubmit()"
+    [disabled]="!form.valid"
+  >
+    Создать
+  </button>
 </mat-dialog-actions>
