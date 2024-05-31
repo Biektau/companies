@@ -1,4 +1,9 @@
 :host{
     overflow: auto;
     flex: 1;
+    height: 100%;
+
+    table{
+        height: 100%;
+    }
 }

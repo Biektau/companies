@@ -1,21 +1,109 @@
+@if (data) {
 <div class="container">
   <div class="header">
-    <span>Наименование</span>
-    <div class="controls">      
+    <span>{{ data.name }}</span>
+    <div class="controls">
       <mat-icon>delete</mat-icon>
-      <mat-icon>close</mat-icon>
+      <mat-icon (click)="handleClose()">close</mat-icon>
     </div>
   </div>
-  <div class="content">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet fuga eveniet
-    ducimus autem, reiciendis maxime vero error quam libero natus est modi earum
-    facilis doloremque eligendi. Quos aliquid expedita animi dolorum.
-    Accusantium sapiente repellat asperiores maiores? Repudiandae ea molestias
-    ut nesciunt corporis unde mollitia eos, magnam obcaecati reiciendis magni,
-    voluptatibus, fugiat maxime qui eaque? Fuga sunt modi amet non ad sed
-    consequatur, dolorem tempore illo consectetur magnam quis nemo odio natus
-    maiores a placeat saepe quia molestiae iste. Expedita laudantium sequi omnis
-    quas et reiciendis totam dolore placeat, temporibus architecto inventore
-    tempora fugit cum vitae quis, veniam quaerat dicta? Possimus?
-  </div>
+
+  <form [formGroup]="form">
+    <mat-form-field>
+      <mat-label>{{ data.name }}</mat-label>
+      <input matInput formControlName="name" required />
+      @if (form.controls['name'].hasError('required')) {<mat-error>
+        Пожалуйста, введите ваше имя </mat-error
+      >}
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>{{ data.inn }}</mat-label>
+      <input matInput formControlName="inn" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Полное наименование</mat-label>
+      <input matInput formControlName="fullName" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Вид организации</mat-label>
+      <input matInput formControlName="type" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Регион</mat-label>
+      <input matInput formControlName="region" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ОГРН</mat-label>
+      <input matInput formControlName="ogrn" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Юридический адресс</mat-label>
+      <input matInput formControlName="legalAdress" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Руководитель</mat-label>
+      <input matInput formControlName="leader" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Номер телефона</mat-label>
+      <input matInput formControlName="phoneNumber" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Электронный адрес</mat-label>
+      <input matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false"
+    >
+      <mat-expansion-panel-header>
+        <mat-panel-title> Дополнительная информация </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="wrapper">
+        <mat-form-field>
+          <mat-label>ОКАТО</mat-label>
+          <input matInput formControlName="okato" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКТМО</mat-label>
+          <input matInput formControlName="oktmo" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКПО</mat-label>
+          <input matInput formControlName="okpo" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКОГУ</mat-label>
+          <input matInput formControlName="okogy" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКФС</mat-label>
+          <input matInput formControlName="okfs" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ОКВЭД</mat-label>
+          <input matInput formControlName="okved" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Фактический адрес</mat-label>
+          <input matInput formControlName="actualAddress" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Почтовый адрес</mat-label>
+          <input matInput formControlName="postAdress" />
+        </mat-form-field>
+      </div>
+    </mat-expansion-panel>
+  </form>
 </div>
+}

@@ -26,6 +26,10 @@ export class TableComponent implements OnInit, AfterViewInit {
 
   constructor(private shareService: ShareService) { }
 
+  selectItem(item: Company): void {
+    this.shareService.changeCompanyValue(item);     
+  }
+
   ngOnInit(): void {
     this.loadCompanies();
     this.shareService.currentSearchValue.subscribe(searchValue => {
@@ -69,4 +73,6 @@ export class TableComponent implements OnInit, AfterViewInit {
       this.dataSource.sort = this.sort;
     }
   }
+
+  
 }
